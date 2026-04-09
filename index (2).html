@@ -1038,8 +1038,10 @@ let members=[];
 
 /* ── AIRTABLE: función central ── */
 async function at(tabla, metodo, id, cuerpo) {
-  const res = await fetch('/.netlify/functions/airtable', {
+  // Vercel mapea la carpeta /api/ directamente a la raíz
+  const res = await fetch('/api/airtable', { 
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ table: tabla, method: metodo, id: id, body: cuerpo })
   });
   if (!res.ok) throw new Error('Error en el servidor');
