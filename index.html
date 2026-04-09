@@ -306,7 +306,7 @@ let members=[];
 /* ── CONEXIÓN VERCEL (ÚNICA Y LIMPIA) ── */
 async function at(tabla, metodo, id, cuerpo) {
   try {
-    const res = await fetch('/api/airtable', {
+    const res = await fetch('/api/server', { // Cambiamos airtable por server
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
