@@ -1038,12 +1038,13 @@ let members=[];
 
 /* ── AIRTABLE: función central ── */
 async function at(tabla, metodo, id, cuerpo) {
-  const body = { 
-    table: tabla, 
-    method: metodo || 'GET',
-    id: id,      
-    body: cuerpo 
-  };
+  const res = await fetch('/.netlify/functions/airtable', {
+    method: 'POST',
+    body: JSON.stringify({ table: tabla, method: metodo, id: id, body: cuerpo })
+  });
+  if (!res.ok) throw new Error('Error en el servidor');
+  return res.json();
+}
   
   // Cambiá la URL a esta versión que es la más compatible:
   const res = await fetch('/api/airtable', { 
