@@ -1036,15 +1036,20 @@ let activeR=null,sorteoR=null,lbCache={};
 let reuniones=[];
 let members=[];
 
-/* ── AIRTABLE: función central ── */
+/* ── CONEXIÓN VERCEL ── */
 async function at(tabla, metodo, id, cuerpo) {
-  // Vercel mapea la carpeta /api/ directamente a la raíz
-  const res = await fetch('/api/airtable', { 
+  const res = await fetch('/api/airtable', { // Ruta directa de Vercel
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ table: tabla, method: metodo, id: id, body: cuerpo })
+    body: JSON.stringify({ 
+      table: tabla, 
+      method: metodo || 'GET', 
+      id: id, 
+      body: cuerpo 
+    })
   });
-  if (!res.ok) throw new Error('Error en el servidor');
+
+  if (!res.ok) throw new Error('Error en la API');
   return res.json();
 }
   
