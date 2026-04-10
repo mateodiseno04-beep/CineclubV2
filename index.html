@@ -29,30 +29,14 @@ body{background:var(--bg);color:var(--gold);font-family:var(--font-m);font-size:
   z-index:100;cursor:pointer;transition:opacity 0.7s ease;padding:40px 32px;
 }
 #splash.out{opacity:0;pointer-events:none;}
-#splash::before,#splash::after{
-  content:'';position:absolute;width:56px;height:56px;
-  border-color:rgba(205,169,60,0.32);border-style:solid;opacity:0.55;
-}
-#splash::before{top:56px;left:20px;border-width:1px 0 0 1px;}
-#splash::after{top:56px;right:20px;border-width:1px 1px 0 0;}
-.sp-bot::before,#splash .sp-bot::after{
-  content:'';position:absolute;width:56px;height:56px;
-  border-color:rgba(205,169,60,0.32);border-style:solid;opacity:0.55;
-}
-.sp-bl{position:absolute;bottom:20px;left:20px;width:56px;height:56px;border:solid rgba(205,169,60,0.32);border-width:0 0 1px 1px;opacity:0.55;}
-.sp-br{position:absolute;bottom:20px;right:20px;width:56px;height:56px;border:solid rgba(205,169,60,0.32);border-width:0 1px 1px 0;opacity:0.55;}
-.sp-logo{width:min(280px,80vw);margin-bottom:32px;}
+.sp-logo{width:min(280px,80vw);margin-bottom:32px; fill: var(--gold);}
 .sp-tag{font-size:0.58rem;letter-spacing:0.35em;color:var(--text-muted);text-transform:uppercase;text-align:center;margin-bottom:44px;line-height:1.9;}
 .sp-cta{font-size:0.58rem;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;border:1px solid rgba(205,169,60,0.32);padding:11px 32px;animation:breathe 2.2s ease-in-out infinite;}
 @keyframes breathe{0%,100%{opacity:1}50%{opacity:0.35}}
 
 /* APP SHELL */
 #app{display:flex;flex-direction:column;height:100%;max-width:430px;margin:0 auto;position:relative;overflow:hidden;}
-
-/* HEADER */
-<div class="hdr">
-  <img src="https://raw.githubusercontent.com/mateodiseno04-beep/cineclub-prime/main/logo.svg" style="height:44px;width:auto;display:block" alt="Cineclub Prime">
-</div>
+.hdr{flex-shrink:0;background:var(--bg);border-bottom:1px solid rgba(205,169,60,0.32);display:flex;align-items:center;justify-content:center;padding:15px; font-family: var(--font-d); letter-spacing: 2px;}
 
 /* SCROLL */
 .scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:18px 15px 100px;-webkit-overflow-scrolling:touch;}
@@ -63,455 +47,250 @@ body{background:var(--bg);color:var(--gold);font-family:var(--font-m);font-size:
 /* BOTTOM NAV */
 .bnav{position:absolute;bottom:0;left:0;right:0;background:var(--bg3);border-top:1px solid rgba(205,169,60,0.32);display:flex;padding-bottom:env(safe-area-inset-bottom,0);z-index:10;}
 .nb{flex:1;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;padding:9px 4px 8px;gap:4px;}
-.nb svg{width:22px;height:22px;stroke:var(--text-muted);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.15s;}
-.nb span{font-family:var(--font-m);font-size:0.48rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);transition:color 0.15s;}
+.nb svg{width:22px;height:22px;stroke:var(--text-muted);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.nb span{font-family:var(--font-m);font-size:0.48rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);}
 .nb.on svg{stroke:var(--gold);}
 .nb.on span{color:var(--gold);}
 
-/* TYPOGRAPHY */
+/* TYPOGRAPHY & CARDS */
 .t-title{font-family:var(--font-d);font-size:1.1rem;color:var(--gold);text-align:center;letter-spacing:0.06em;margin-bottom:2px;}
 .t-sub{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);text-align:center;margin-bottom:14px;}
-.t-lbl{font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted);}
-.divider{display:flex;align-items:center;gap:8px;margin:0 auto 16px;max-width:150px;}
-.d-line{flex:1;height:1px;background:rgba(205,169,60,0.32);}
-.d-gem{color:var(--gold);font-size:9px;opacity:0.6;}
+.card{background:var(--bg2);border-left:2px solid var(--gold);padding:14px; margin-bottom: 15px;}
+.t-lbl{font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted); margin-bottom: 8px; display: block;}
+.gap{margin-bottom:8px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 
 /* FORMS */
-input,select,textarea{background:var(--bg3);border:1px solid rgba(205,169,60,0.32);color:var(--gold);font-family:var(--font-m);font-size:0.82rem;padding:10px 12px;outline:none;width:100%;-webkit-appearance:none;border-radius:0;transition:border-color 0.15s;}
-input:focus,select:focus,textarea:focus{border-color:var(--gold);}
-input::placeholder,textarea::placeholder{color:var(--text-muted);}
-select option{background:var(--bg3);color:var(--gold);}
-.btn{background:var(--gold);color:#1a0c14;border:none;font-family:var(--font-m);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;padding:12px 20px;cursor:pointer;font-weight:700;width:100%;transition:filter 0.15s;}
-.btn:hover{filter:brightness(1.1);}
-.btn-sm{width:auto;padding:10px 14px;}
-.btn-x{background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;padding:2px 6px;line-height:1;}
-.btn-x:hover{color:#c06060;}
+input,select{background:var(--bg3);border:1px solid rgba(205,169,60,0.32);color:var(--gold);font-family:var(--font-m);font-size:0.82rem;padding:10px 12px;outline:none;width:100%; border-radius:0;}
+.btn{background:var(--gold);color:#1a0c14;border:none;font-family:var(--font-m);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;padding:12px 20px;cursor:pointer;font-weight:700;width:100%; margin-top: 10px;}
+.btn-sm{width:auto;padding:10px 14px; margin-top: 0;}
+.btn-x{background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;}
 
-/* CARDS */
-.card{background:var(--bg2);border-left:2px solid var(--gold);padding:14px;}
-.gap{margin-bottom:8px;}
-.gap-sm{margin-bottom:6px;}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.row{display:flex;gap:8px;align-items:flex-start;}
-.row input{flex:1;}
-.s-lbl{font-size:0.52rem;letter-spacing:0.2em;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
-.empty{text-align:center;font-size:0.75rem;color:var(--text-muted);padding:24px 0;letter-spacing:0.06em;}
-
-/* REUNION ITEMS */
-.ritem{background:var(--bg2);padding:12px 13px;border-left:2px solid transparent;margin-bottom:1px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.15s,background 0.15s;}
-.ritem:hover,.ritem.sel{border-left-color:var(--gold);background:var(--bg3);}
-.r-num{font-size:0.52rem;letter-spacing:0.18em;color:var(--text-muted);text-transform:uppercase;}
-.r-cat{font-family:var(--font-d);font-size:0.95rem;color:var(--gold);margin:1px 0;}
+/* LIST ITEMS */
+.ritem{background:var(--bg2);padding:12px 13px;border-left:2px solid transparent;margin-bottom:1px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;}
+.ritem.sel{border-left-color:var(--gold);background:var(--bg3);}
+.r-cat{font-family:var(--font-d);font-size:0.95rem;color:var(--gold);}
 .r-meta{font-size:0.6rem;color:var(--text-muted);}
-.r-badge{font-size:0.52rem;color:var(--text-muted);background:var(--gold-dim);padding:3px 8px;white-space:nowrap;}
+.cand-box{background:var(--bg3); padding: 15px; border: 1px solid var(--gold-border); margin-bottom: 20px;}
+.cand-row{display:flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--gold-dim);}
 
-/* CANDIDATAS */
-.cand-box{background:var(--bg2);padding:13px 14px;border-left:2px solid var(--gold);margin-top:1px;}
-.cand-row{display:flex;align-items:flex-start;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(205,169,60,0.32);}
-.cand-row:last-child{border-bottom:none;}
-.cand-title{font-family:var(--font-d);font-size:0.88rem;color:var(--gold);}
-.cand-by{font-size:0.6rem;color:var(--text-muted);margin-top:2px;}
-.no-sel{text-align:center;font-size:0.75rem;color:var(--text-muted);padding:20px 12px;border:1px dashed rgba(205,169,60,0.32);margin-top:1px;line-height:1.6;}
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--gold-border); border: 1px solid var(--gold-border); margin-top: 10px;}
+.cal-day{background:var(--bg);min-height:40px;padding:4px; font-size: 0.7rem; position: relative;}
+.cal-day.today{color: var(--gold); font-weight: bold;}
+.cal-bar{width: 100%; height: 2px; background: var(--gold); margin-top: 2px;}
 
-/* CALENDARIO */
-.cal-wrap{margin-top:18px;}
-.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.cal-mn{font-family:var(--font-d);font-size:0.95rem;color:var(--gold);}
-.cal-yr{font-size:0.55rem;color:var(--text-muted);letter-spacing:0.12em;}
-.cal-arr{background:none;border:1px solid rgba(205,169,60,0.32);color:var(--text-soft);width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:all 0.15s;}
-.cal-arr:hover{border-color:var(--gold);color:var(--gold);}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:rgba(205,169,60,0.32);border:1px solid rgba(205,169,60,0.32);margin-bottom:14px;}
-.cal-dl{background:var(--bg);text-align:center;font-size:0.48rem;letter-spacing:0.06em;color:var(--text-muted);text-transform:uppercase;padding:5px 0;}
-.cal-day{background:var(--bg);min-height:42px;padding:4px;}
-.cal-day.dim{opacity:0.2;}
-.cal-day.has-ev{background:var(--bg3);cursor:pointer;}
-.cal-day.has-ev:hover{background:var(--bg2);}
-.cal-day.today .cal-dn{color:var(--gold);font-weight:700;}
-.cal-dn{font-size:0.58rem;color:var(--text-muted);margin-bottom:2px;}
-.cal-bar{width:100%;height:2px;background:var(--gold);margin-top:2px;}
-.cal-lbl{font-size:0.46rem;color:var(--gold);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-
-/* UPCOMING */
-.up-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(205,169,60,0.32);}
-.up-row:last-child{border-bottom:none;}
-.up-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-.up-cat{font-family:var(--font-d);font-size:0.85rem;color:var(--gold);flex:1;}
-.up-date{font-size:0.6rem;color:var(--text-muted);}
-.up-gcal{background:none;border:none;color:var(--gold);font-size:0.55rem;letter-spacing:0.1em;cursor:pointer;font-family:var(--font-m);text-transform:uppercase;padding:0;opacity:0.7;}
-.up-gcal:hover{opacity:1;text-decoration:underline;}
-
-/* MODAL */
-.modal-bg{position:fixed;inset:0;background:rgba(20,10,16,0.82);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px;}
-.modal-box{background:var(--bg2);border:1px solid rgba(205,169,60,0.32);border-top:2px solid var(--gold);padding:20px;width:100%;max-width:320px;}
-.modal-cat{font-family:var(--font-d);font-size:1.1rem;color:var(--gold);margin-bottom:4px;}
-.modal-meta{font-size:0.7rem;color:var(--text-muted);margin-bottom:16px;line-height:1.7;}
-.modal-btns{display:flex;gap:8px;}
-.m-gcal{flex:1;background:none;border:1px solid rgba(205,169,60,0.32);color:var(--gold);font-family:var(--font-m);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:9px;cursor:pointer;transition:border-color 0.15s;}
-.m-gcal:hover{border-color:var(--gold);}
-.m-close{background:none;border:1px solid rgba(205,169,60,0.32);color:var(--text-muted);font-family:var(--font-m);font-size:0.62rem;padding:9px 14px;cursor:pointer;}
-
-/* SORTEO */
-.sorteo{text-align:center;}
-.r-pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}
-.rpill{background:var(--bg2);border:1px solid rgba(205,169,60,0.32);color:var(--text-muted);font-family:var(--font-m);font-size:0.62rem;letter-spacing:0.08em;padding:8px 14px;cursor:pointer;transition:all 0.15s;}
-.rpill.on{border-color:var(--gold);color:var(--gold);background:var(--bg3);}
-.wheel{width:188px;height:188px;border-radius:50%;border:1px solid var(--gold);background:var(--bg3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;overflow:hidden;}
-.w-ring{position:absolute;width:172px;height:172px;border-radius:50%;border:1px solid rgba(205,169,60,0.32);pointer-events:none;}
-.w-bg{position:absolute;width:100%;height:100%;border-radius:50%;background:repeating-conic-gradient(var(--bg2) 0deg 30deg,var(--bg3) 30deg 60deg);opacity:0.9;}
-.w-txt{position:relative;z-index:2;font-family:var(--font-d);font-size:0.88rem;color:var(--gold);padding:18px;text-align:center;line-height:1.3;}
-.pool-box{text-align:left;margin-top:18px;}
-.pool-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(205,169,60,0.32);font-size:0.78rem;color:var(--text-soft);}
-.pool-row:last-child{border-bottom:none;}
-.p-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-
-/* LETTERBOXD */
-.lb-note{background:var(--bg2);border-left:2px solid var(--gold);padding:10px 13px;margin-bottom:12px;font-size:0.65rem;color:var(--text-muted);line-height:1.65;}
-.lb-card{background:var(--bg2);padding:13px 14px;border-left:2px solid transparent;margin-bottom:1px;transition:border-color 0.15s;}
-.lb-card:hover{border-left-color:var(--gold);}
-.lb-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.lb-av{width:38px;height:38px;border-radius:50%;border:1px solid rgba(205,169,60,0.32);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:0.95rem;color:var(--gold);flex-shrink:0;}
-.lb-name{font-family:var(--font-d);font-size:0.9rem;color:var(--gold);}
-.lb-user{font-size:0.62rem;color:var(--text-muted);}
-.lb-reviews{border-top:1px solid rgba(205,169,60,0.32);padding-top:10px;display:flex;flex-direction:column;gap:10px;}
-.lb-film{font-family:var(--font-d);color:var(--gold);font-size:0.82rem;}
-.lb-stars{color:var(--gold);font-size:10px;margin-left:4px;}
-.lb-txt{font-size:0.68rem;color:var(--text-muted);line-height:1.6;margin-top:3px;font-style:italic;}
-.lb-load{font-size:0.68rem;color:var(--text-muted);font-style:italic;}
-
-/* MIEMBROS */
-.m-card{background:var(--bg2);padding:13px 14px;border-left:2px solid transparent;margin-bottom:1px;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;}
-.m-card:hover{border-left-color:var(--gold);}
-.m-av{width:40px;height:40px;border-radius:50%;border:1px solid rgba(205,169,60,0.32);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:0.95rem;color:var(--gold);flex-shrink:0;}
-.m-name{font-family:var(--font-d);font-size:0.9rem;color:var(--gold);}
-.m-lb{font-size:0.65rem;color:var(--text-muted);margin-top:2px;}
-.m-lb a{color:var(--gold);text-decoration:none;}
-.m-lb a:hover{text-decoration:underline;}
+/* WHEEL & POOL */
+.wheel{width:160px;height:160px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:20px auto; text-align: center; padding: 10px;}
+.pool-row{font-size: 0.8rem; padding: 5px 0; border-bottom: 1px solid var(--gold-dim); display: flex; justify-content: space-between;}
 </style>
 </head>
 <body>
 
 <div id="splash" onclick="enterApp()">
-  <div class="sp-bl"></div><div class="sp-br"></div>
-  <svg class="sp-logo" viewBox="0 0 214 99">
-    <path fill="currentColor" d="M1,57.4c0-14.14,10.82-26.64,25.29-27.74,3.46-.26,6.76-.19,9.61.28v6.27c-2.79-.47-6.08-.54-9.13-.36-11.34.66-19.55,10.6-19.57,21.46-.02,11.2,7.81,20.17,19.57,18.89,3.12-.34,6.34-1.29,9.13-2.49v6.27c-2.86,1.22-6.17,2.08-9.61,2.51-14.82,1.87-25.3-11.43-25.29-25.09Z"/>
-    <path fill="currentColor" d="M41.68,79.59V28.72c2.28-.3,3.43-.46,5.71-.8v50.69c-2.28.41-3.43.61-5.71.98Z"/>
-    <path fill="currentColor" d="M71.01,23.83c2.37-.46,3.55-.7,5.92-1.18v49.75c-2.37.56-3.55.83-5.92,1.37v-31.82c-3.96-2.26-5.93-3.42-9.89-5.79v39.77c-2.37.5-3.55.74-5.92,1.21V25.98c.25-.04.38-.06.63-.1,6.07,3.68,9.11,5.45,15.19,8.87v-10.91h-.01Z"/>
-    <path fill="currentColor" d="M83.96,70.71V21.19c6.69-1.42,10.03-2.16,16.72-3.65v5.81c-4.32.98-6.48,1.47-10.8,2.42v9.65c3.9-.89,5.85-1.34,9.75-2.24v5.32c-3.9.92-5.85,1.38-9.75,2.28v22.62c4.32-1.06,6.48-1.6,10.8-2.68v5.81c-6.69,1.7-10.03,2.55-16.72,4.18Z"/>
-  </svg>
+  <div class="t-title" style="font-size: 2rem;">CINECLUB PRIME</div>
   <p class="sp-tag">Sala de proyección privada<br>Buenos Aires · 2026</p>
   <div class="sp-cta">Ingresar</div>
 </div>
 
 <div id="app">
-  <div class="hdr"><div class="t-title">CINECLUB PRIME</div></div>
+  <div class="hdr">CINECLUB PRIME</div>
 
   <div class="scroll" id="scroll">
-
     <div class="panel on" id="p-reuniones">
       <div class="t-title">Reuniones</div>
-      <div class="t-sub">Cada encuentro · su categoría</div>
-      <div class="divider"><div class="d-line"></div><span class="d-gem">◆</span><div class="d-line"></div></div>
-      <div class="card gap" style="margin-bottom:14px">
-        <div class="t-lbl gap-sm">Nueva reunión</div>
-        <div class="gap"><input type="text" id="nr-cat" placeholder="Categoría (ej: Terror, Nacional…)"/></div>
-        <div class="grid2"><input type="date" id="nr-date"/><input type="time" id="nr-time" value="20:00"/></div>
-        <div class="gap"><input type="text" id="nr-place" placeholder="Lugar (opcional)"/></div>
+      <div class="t-sub">Encuentros y categorías</div>
+      
+      <div class="card">
+        <span class="t-lbl">Nueva reunión</span>
+        <input type="text" id="nr-cat" placeholder="Categoría..." class="gap"/>
+        <div class="grid2">
+          <input type="date" id="nr-date"/>
+          <input type="time" id="nr-time" value="20:00"/>
+        </div>
         <button class="btn" onclick="addReunion()">+ Crear reunión</button>
       </div>
-      <div class="s-lbl">Reuniones agendadas</div>
+
       <div id="reunion-list"></div>
-      <div id="cand-panel"></div>
-      <div class="cal-wrap">
-        <div class="s-lbl">Calendario</div>
-        <div class="cal-nav">
-          <button class="cal-arr" onclick="calNav(-1)">&#8592;</button>
-          <div style="text-align:center"><div class="cal-mn" id="cal-month"></div><div class="cal-yr" id="cal-year"></div></div>
-          <button class="cal-arr" onclick="calNav(1)">&#8594;</button>
-        </div>
-        <div class="cal-grid" id="cal-grid"></div>
-        <div id="upcoming"></div>
-      </div>
+      <div id="cand-panel" style="margin-top: 20px;"></div>
+
+      <div class="t-lbl" style="margin-top:20px">Calendario</div>
+      <div class="cal-grid" id="cal-grid"></div>
     </div>
 
     <div class="panel" id="p-sorteo">
       <div class="t-title">Sorteo</div>
-      <div class="t-sub">¿Cuál vemos esta noche?</div>
-      <div class="divider"><div class="d-line"></div><span class="d-gem">◆</span><div class="d-line"></div></div>
-      <div class="sorteo">
-        <div class="r-pills" id="s-pills"></div>
-        <div class="wheel">
-          <div class="w-bg" id="wbg"></div><div class="w-ring"></div>
-          <div class="w-txt" id="wtxt"><span style="font-size:0.62rem;color:var(--text-muted);letter-spacing:0.08em">Elegí una reunión</span></div>
-        </div>
-        <button class="btn" style="max-width:220px;margin:0 auto;letter-spacing:0.22em" onclick="sortear()">◆ Sortear ◆</button>
-        <div class="pool-box" id="pool-box"></div>
-      </div>
-    </div>
-
-    <div class="panel" id="p-letterboxd">
-      <div class="t-title">Letterboxd</div>
-      <div class="t-sub">Últimas reseñas del grupo</div>
-      <div class="divider"><div class="d-line"></div><span class="d-gem">◆</span><div class="d-line"></div></div>
-      <div class="lb-note">Reseñas cargadas desde el RSS público. Agregá usuarios en Miembros.</div>
-      <div id="lb-grid"></div>
+      <div class="t-sub">¿Qué vemos hoy?</div>
+      <div id="s-pills" style="display:flex; gap:5px; flex-wrap:wrap; justify-content:center"></div>
+      <div class="wheel" id="wtxt">Seleccioná una reunión</div>
+      <button class="btn" onclick="sortear()">◆ Sortear ◆</button>
+      <div id="pool-box" style="margin-top:20px"></div>
     </div>
 
     <div class="panel" id="p-miembros">
       <div class="t-title">Miembros</div>
-      <div class="t-sub">Los del club</div>
-      <div class="divider"><div class="d-line"></div><span class="d-gem">◆</span><div class="d-line"></div></div>
-      <div class="card gap" style="margin-bottom:12px">
-        <div class="t-lbl gap-sm">Agregar miembro</div>
-        <div class="gap"><input type="text" id="m-name" placeholder="Nombre…"/></div>
-        <div class="gap"><input type="text" id="m-lb" placeholder="Usuario Letterboxd…"/></div>
-        <button class="btn" onclick="addMember()">+ Agregar</button>
+      <div class="t-sub">El club</div>
+      <div class="card">
+        <input type="text" id="m-name" placeholder="Nombre..." class="gap"/>
+        <input type="text" id="m-lb" placeholder="Usuario Letterboxd..."/>
+        <button class="btn" onclick="addMember()">+ Agregar miembro</button>
       </div>
       <div id="m-grid"></div>
     </div>
-
   </div>
 
   <nav class="bnav">
     <button class="nb on" id="bn-reuniones" onclick="goTab('reuniones')">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       <span>Reuniones</span>
     </button>
     <button class="nb" id="bn-sorteo" onclick="goTab('sorteo')">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
       <span>Sorteo</span>
     </button>
-    <button class="nb" id="bn-letterboxd" onclick="goTab('letterboxd')">
-      <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-      <span>Letterboxd</span>
-    </button>
     <button class="nb" id="bn-miembros" onclick="goTab('miembros')">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <span>Miembros</span>
     </button>
   </nav>
-
-  <div id="modal-root"></div>
 </div>
 
 <script>
-/* ── CONSTANTES ── */
-const MONTHS=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-const DS=['D','L','M','M','J','V','S'];
-const todayStr=new Date().toISOString().split('T')[0];
-let vY=new Date().getFullYear(),vM=new Date().getMonth();
-let activeR=null,sorteoR=null,lbCache={};
-let reuniones=[];
-let members=[];
+/* ── CONFIGURACIÓN (REEMPLAZÁ ESTO) ── */
+const AIRTABLE_TOKEN = "patEBhUFhtYaK7Yt1.c9a68a570fca71764b1725051aa50eec82d7685c02c64ccedf93212b0c6a94a8"; 
+const BASE_ID = "app7dzqR9nVlqFnqa/tblKNXXeKMIDDrCZN/viwt6imKbggznE607?blocks=hide";
 
-/* ── CONEXIÓN DIRECTA ── */
-async function at(tabla, metodo, id, cuerpo) {
-  // CONFIGURACIÓN (Poné tus datos acá directo)
-  const TOKEN = "TU_TOKEN_ACA"; // Pegá tu Personal Access Token
-  const BASE_ID = "TU_BASE_ID_ACA"; // Pegá el ID de tu base (app...)
-
-  const url = `https://api.airtable.com/v0/${BASE_ID}/${tabla}${id ? `/${id}` : ''}`;
-  
-  const res = await fetch(url, {
-    method: metodo || 'GET',
+/* ── NÚCLEO DE CONEXIÓN DIRECTA ── */
+async function at(tabla, metodo = 'GET', id = null, cuerpo = null) {
+  const url = `https://api.airtable.com/v0/${BASE_ID}/${tabla}${id ? '/' + id : ''}`;
+  const options = {
+    method: metodo,
     headers: {
-      'Authorization': `Bearer ${TOKEN}`,
+      'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
       'Content-Type': 'application/json'
-    },
-    body: cuerpo ? JSON.stringify(cuerpo) : undefined
-  });
-
-  if (!res.ok) {
-    const err = await res.json();
-    console.error("Error Airtable:", err);
-    throw new Error('Error en la base de datos');
-  }
+    }
+  };
+  if (cuerpo) options.body = JSON.stringify(cuerpo);
+  
+  const res = await fetch(url, options);
+  if (!res.ok) throw new Error('Error Airtable');
   return res.json();
 }
 
-/* ── CARGA INICIAL ── */
-function setLoading(msg){
-  document.getElementById('reunion-list').innerHTML=`<div class="empty">${msg}</div>`;
-}
-async function cargarTodo(){
-  setLoading('Cargando datos…');
-  try{
-    const [rData,mData]=await Promise.all([at('Reuniones'),at('Miembros')]);
-    members=(mData.records||[]).map(r=>({id:r.id,name:r.fields.name||'',lb:r.fields.lb||''}));
-    reuniones=(rData.records||[]).map(r=>({
-      id:r.id,
-      cat:r.fields.cat||'',
-      date:r.fields.date||'',
-      time:r.fields.time||'',
-      place:r.fields.place||'',
-      candidatas:JSON.parse(r.fields.candidatas||'[]')
-    })).sort((a,b)=>(a.date||'9999')<(b.date||'9999')?-1:1);
-    renderReuniones();renderCal();renderMembers();
-  }catch(e){
-    setLoading('⚠ No se pudieron cargar los datos.');
-  }
+/* ── VARIABLES DE ESTADO ── */
+let reuniones = [], members = [], activeR = null, sorteoR = null;
+
+/* ── CARGA ── */
+async function cargarTodo() {
+  try {
+    const [rData, mData] = await Promise.all([at('Reuniones'), at('Miembros')]);
+    reuniones = (rData.records || []).map(r => ({ id: r.id, ...r.fields, candidatas: JSON.parse(r.fields.candidatas || '[]') }));
+    members = (mData.records || []).map(r => ({ id: r.id, ...r.fields }));
+    renderReuniones(); renderMembers(); renderCal();
+  } catch (e) { console.error(e); }
 }
 
-/* ── SPLASH ── */
-function enterApp(){document.getElementById('splash').classList.add('out');}
-
-/* ── TABS ── */
-function goTab(id){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
-  document.getElementById('p-'+id).classList.add('on');
-  document.getElementById('bn-'+id).classList.add('on');
-  if(id==='sorteo') renderSorteo();
-  if(id==='letterboxd') renderLB();
-  if(id==='miembros') renderMembers();
+/* ── LOGICA APP ── */
+function enterApp() { document.getElementById('splash').classList.add('out'); }
+function goTab(tab) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+  document.getElementById('p-' + tab).classList.add('on');
+  document.getElementById('bn-' + tab).classList.add('on');
+  if(tab === 'sorteo') renderSorteo();
 }
 
-/* ── REUNIONES ── */
-function fmtDate(d,t){
-  if(!d) return 'Sin fecha';
-  const[y,m,dd]=d.split('-');
-  return `${parseInt(dd)} ${MONTHS[+m-1].slice(0,3)} ${y}${t?' · '+t+'hs':''}`;
-}
-async function addReunion(){
-  const cat=document.getElementById('nr-cat').value.trim();
-  const date=document.getElementById('nr-date').value;
-  const time=document.getElementById('nr-time').value;
-  const place=document.getElementById('nr-place').value.trim();
+// Reuniones
+async function addReunion() {
+  const cat = document.getElementById('nr-cat').value;
+  const date = document.getElementById('nr-date').value;
+  const time = document.getElementById('nr-time').value;
   if(!cat) return;
-  try{
-    await at('Reuniones','POST',null,{fields:{cat,date,time,place,candidatas:'[]'}});
-    document.getElementById('nr-cat').value='';
-    await cargarTodo();
-  }catch(e){alert('No se pudo guardar.');}
-}
-async function delReunion(id){
-  if(!confirm('¿Eliminar esta reunión?')) return;
-  try{
-    await at('Reuniones','DELETE',id);
-    if(activeR===id) activeR=null;
-    await cargarTodo();
-  }catch(e){alert('No se pudo eliminar.');}
-}
-function selReunion(id){activeR=activeR===id?null:id;renderReuniones();}
-
-async function addCand(rid){
-  const ti=document.getElementById('ct-'+rid).value.trim();
-  const pi=document.getElementById('cp-'+rid).value;
-  if(!ti) return;
-  const r=reuniones.find(x=>x.id===rid);
-  const nuevas=[...r.candidatas,{title:ti,proposer:pi}];
-  try{
-    await at('Reuniones','PATCH',rid,{fields:{candidatas:JSON.stringify(nuevas)}});
-    await cargarTodo();
-    activeR=rid;renderReuniones();
-  }catch(e){alert('Error al guardar película.');}
-}
-async function delCand(rid,i){
-  const r=reuniones.find(x=>x.id===rid);
-  const nuevas=r.candidatas.filter((_,idx)=>idx!==i);
-  try{
-    await at('Reuniones','PATCH',rid,{fields:{candidatas:JSON.stringify(nuevas)}});
-    await cargarTodo();
-    activeR=rid;renderReuniones();
-  }catch(e){alert('Error al eliminar.');}
+  await at('Reuniones', 'POST', null, { fields: { cat, date, time, candidatas: '[]' } });
+  cargarTodo();
 }
 
-function renderReuniones(){
-  const list=document.getElementById('reunion-list');
-  if(!reuniones.length){
-    list.innerHTML='<div class="empty">Creá la primera reunión arriba</div>';
-    return;
-  }
-  list.innerHTML=reuniones.map((r,i)=>`
-    <div class="ritem ${activeR===r.id?'sel':''}" onclick="selReunion('${r.id}')">
-      <div>
-        <div class="r-num">Reunión ${i+1}</div>
-        <div class="r-cat">${r.cat}</div>
-        <div class="r-meta">${fmtDate(r.date,r.time)}</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="r-badge">${r.candidatas.length} cand.</span>
-        <button class="btn-x" onclick="event.stopPropagation();delReunion('${r.id}')">×</button>
-      </div>
-    </div>`).join('');
+async function addCand(rid) {
+  const title = document.getElementById('ct-' + rid).value;
+  const proposer = document.getElementById('cp-' + rid).value;
+  if(!title) return;
+  const r = reuniones.find(x => x.id === rid);
+  const nuevas = [...r.candidatas, { title, proposer }];
+  await at('Reuniones', 'PATCH', rid, { fields: { candidatas: JSON.stringify(nuevas) } });
+  cargarTodo();
+}
 
-  const panel=document.getElementById('cand-panel');
-  if(!activeR){
-    panel.innerHTML='<div class="no-sel">Seleccioná una reunión para gestionar candidatas</div>';
-    return;
-  }
-  const r=reuniones.find(x=>x.id===activeR);
-  const opts=members.map(m=>`<option value="${m.name}">${m.name}</option>`).join('');
-  panel.innerHTML=`
+function renderReuniones() {
+  const list = document.getElementById('reunion-list');
+  list.innerHTML = reuniones.map(r => `
+    <div class="ritem ${activeR === r.id ? 'sel' : ''}" onclick="activeR='${r.id}';renderReuniones()">
+      <div><div class="r-cat">${r.cat}</div><div class="r-meta">${r.date || 'Sin fecha'}</div></div>
+      <span class="r-meta">${r.candidatas.length} pelis</span>
+    </div>
+  `).join('');
+
+  const panel = document.getElementById('cand-panel');
+  if(!activeR) { panel.innerHTML = '<div class="t-sub">Seleccioná una reunión</div>'; return; }
+  const r = reuniones.find(x => x.id === activeR);
+  const mOpts = members.map(m => `<option value="${m.name}">${m.name}</option>`).join('');
+  panel.innerHTML = `
     <div class="cand-box">
-      <span class="t-lbl">Candidatas — ${r.cat}</span>
-      <div class="row gap" style="margin-top:10px">
-        <input type="text" id="ct-${r.id}" placeholder="Película…"/>
-        <select id="cp-${r.id}">${opts}</select>
-        <button class="btn btn-sm" onclick="addCand('${r.id}')">+</button>
+      <span class="t-lbl">Propuestas para ${r.cat}</span>
+      <div class="grid2 gap">
+        <input type="text" id="ct-${r.id}" placeholder="Película..."/>
+        <select id="cp-${r.id}"><option value="">¿Quién?</option>${mOpts}</select>
       </div>
-      ${r.candidatas.map((c,i)=>`<div class="cand-row"><div>${c.title} (${c.proposer})</div><button class="btn-x" onclick="delCand('${r.id}',${i})">×</button></div>`).join('')}
-    </div>`;
+      <button class="btn btn-sm" onclick="addCand('${r.id}')">Añadir</button>
+      <div style="margin-top:15px">
+        ${r.candidatas.map(c => `<div class="cand-row"><span>${c.title}</span><small>${c.proposer}</small></div>`).join('')}
+      </div>
+    </div>
+  `;
 }
 
-/* ── CALENDARIO ── */
-function renderCal(){
-  document.getElementById('cal-month').textContent=MONTHS[vM];
-  document.getElementById('cal-year').textContent=vY;
-  const days=new Date(vY,vM+1,0).getDate();
-  let h='';
-  for(let d=1;d<=days;d++){
-    const ds=`${vY}-${String(vM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const evs=reuniones.filter(r=>r.date===ds);
-    h+=`<div class="cal-day ${ds===todayStr?'today':''}">${d}${evs.map(e=>`<div class="cal-bar"></div>`).join('')}</div>`;
-  }
-  document.getElementById('cal-grid').innerHTML=h;
+// Sorteo
+function renderSorteo() {
+  const pills = document.getElementById('s-pills');
+  pills.innerHTML = reuniones.map(r => `<button class="btn btn-sm" style="margin:2px" onclick="sorteoR='${r.id}';renderPool()">${r.cat}</button>`).join('');
 }
-function calNav(dir){vM+=dir;if(vM>11){vM=0;vY++;}if(vM<0){vM=11;vY--;}renderCal();}
-
-/* ── SORTEO ── */
-function renderSorteo(){
-  const pills=document.getElementById('s-pills');
-  pills.innerHTML=reuniones.map(r=>`<button class="rpill ${sorteoR===r.id?'on':''}" onclick="selSorteo('${r.id}')">${r.cat}</button>`).join('');
+function renderPool() {
+  const r = reuniones.find(x => x.id === sorteoR);
+  document.getElementById('pool-box').innerHTML = r.candidatas.map(c => `<div class="pool-row"><span>${c.title}</span><small>${c.proposer}</small></div>`).join('');
+  document.getElementById('wtxt').textContent = "¡Listo!";
 }
-function selSorteo(id){sorteoR=id;renderSorteo();renderPool();}
-function renderPool(){
-  const r=reuniones.find(x=>x.id===sorteoR);
-  document.getElementById('pool-box').innerHTML=r?r.candidatas.map(c=>`<div>${c.title}</div>`).join(''):'';
-}
-function sortear(){
-  const r=reuniones.find(x=>x.id===sorteoR);
-  if(!r||!r.candidatas.length)return;
-  const win=r.candidatas[Math.floor(Math.random()*r.candidatas.length)];
-  document.getElementById('wtxt').textContent=win.title;
+function sortear() {
+  const r = reuniones.find(x => x.id === sorteoR);
+  if(!r || !r.candidatas.length) return;
+  const win = r.candidatas[Math.floor(Math.random() * r.candidatas.length)];
+  document.getElementById('wtxt').innerHTML = `<small>Hoy vemos:</small><br><strong>${win.title}</strong>`;
 }
 
-/* ── MIEMBROS ── */
-async function addMember(){
-  const name=document.getElementById('m-name').value.trim();
-  const lb=document.getElementById('m-lb').value.trim();
+// Miembros
+async function addMember() {
+  const name = document.getElementById('m-name').value;
+  const lb = document.getElementById('m-lb').value;
   if(!name) return;
-  try{
-    await at('Miembros','POST',null,{fields:{name,lb}});
-    document.getElementById('m-name').value='';
-    await cargarTodo();
-  }catch(e){alert('Error al guardar miembro.');}
+  await at('Miembros', 'POST', null, { fields: { name, lb } });
+  cargarTodo();
 }
-async function delMember(id){
-  if(!confirm('¿Eliminar?'))return;
-  try{
-    await at('Miembros','DELETE',id);
-    await cargarTodo();
-  }catch(e){alert('Error.');}
-}
-function renderMembers(){
-  document.getElementById('m-grid').innerHTML=members.map(m=>`
-    <div class="m-card">
-      <div style="flex:1"><strong>${m.name}</strong><br><small>${m.lb}</small></div>
-      <button class="btn-x" onclick="delMember('${m.id}')">×</button>
-    </div>`).join('');
+function renderMembers() {
+  document.getElementById('m-grid').innerHTML = members.map(m => `
+    <div class="ritem"><span>${m.name}</span><small>@${m.lb}</small></div>
+  `).join('');
 }
 
-/* ── INIT ── */
+// Calendario Simple
+function renderCal() {
+  const grid = document.getElementById('cal-grid');
+  let h = '';
+  for(let i=1; i<=31; i++) {
+    const dStr = `2026-04-${String(i).padStart(2,'0')}`;
+    const tiene = reuniones.some(r => r.date === dStr);
+    h += `<div class="cal-day">${i}${tiene ? '<div class="cal-bar"></div>' : ''}</div>`;
+  }
+  grid.innerHTML = h;
+}
+
 cargarTodo();
 </script>
 </body>
