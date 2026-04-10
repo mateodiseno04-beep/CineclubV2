@@ -1,13 +1,9 @@
 export default async function handler(req, res) {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-  };
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).set(headers).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
 
   try {
     const { table, method, id, body } = req.body;
@@ -25,8 +21,8 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    return res.status(response.status).set(headers).json(data);
+    return res.status(response.status).json(data);
   } catch (err) {
-    return res.status(500).set(headers).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 }
